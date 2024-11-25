@@ -1,1 +1,1 @@
-web: gunicorn muddy_paws.wsgi
+web: gunicorn Muddy-Paws.wsgi

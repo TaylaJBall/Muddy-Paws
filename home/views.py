@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 # Create your views here.
-class HomePage(TemplateView):
+class Index(TemplateView):
     """
     Displays home page"
     """
-    template_name = 'index.html'
+    template_name = 'home/index.html'

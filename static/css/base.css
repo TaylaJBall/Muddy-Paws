@@ -5,12 +5,11 @@
     --font: 'Just Another Hand', serif;
 
     /* colours */
-    --yellow: #FFA733;
+    --yellow: rgba(255, 167, 51, 70%);
     --beige:  #FFF0DB;
-    --brown: #70543E;
+    --brown: #411900;
     --grey: #C7CCDB;
     --light-grey: #F2F4F8;
-
 }
 
 html, body {
@@ -26,26 +25,46 @@ body {
 main {
     flex: 1 0 auto;
     background-image: url(../images/background.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 /* Header */
 
-.nav {
-    background-color: var(--yellow);
+header {
+    background-color: var(--yellow) !important;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
 }
 
 a.nav-link {
-    color: var(--brown);
+    color: var(--brown) !important;
+}
+
+.links {
+    max-width: 35%;
+}
+
+.title {
+    color: var(--brown) !important;
+    font-size: 50px; 
+    max-width: 20%;
 }
 
 /* Footer */
-.footer {
+footer {
     flex-shrink: 0;
     background-color: var(--yellow);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    opacity: 70%;
 }
 
 .social-icon {

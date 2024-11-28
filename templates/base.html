@@ -13,7 +13,12 @@
 </head>
 <body>
     {% include 'includes/header.html' %}
-    <h1>Muddy Paws Dog Grooming</h1>
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
     {% include 'includes/footer.html' %}
     {% block onload_js %}
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

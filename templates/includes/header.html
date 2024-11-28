@@ -1,14 +1,14 @@
 {% load static %}
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Muddy Paws</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand justify-content-center title" href="#">Muddy Paws Dog Grooming</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Navigation items -->
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav me-auto mb-2">
+        <div class="collapse navbar-collapse float-right links" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto mb-2">
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -24,9 +24,8 @@
                 Account
               </a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Log In</a>
+                <a class="dropdown-item" href="#">Dashboard</a>
               </div>
             </li>
           </ul>

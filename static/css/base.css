@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Roboto:wght@400;500;700;900&display=swap');
+
+:root {
+    /* Font */
+    --font: 'Just Another Hand', serif;
+
+    /* colours */
+    --yellow: #FFA733;
+    --beige:  #FFF0DB;
+    --brown: #70543E;
+    --grey: #C7CCDB;
+    --light-grey: #F2F4F8;
+
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--font);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    background-image: url(../images/background.png);
+}
+
+/* Header */
+
+.nav {
+    background-color: var(--yellow);
+}
+
+a.nav-link {
+    color: var(--brown);
+}
+
+/* Footer */
+.footer {
+    flex-shrink: 0;
+    background-color: var(--yellow);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    height: 2rem;
+    margin: 1rem;
+}

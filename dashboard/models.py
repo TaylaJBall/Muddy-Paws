@@ -24,3 +24,6 @@ class Pet(models.Model):
     microchipped = models.BooleanField(default=False)
     spayed_neutered = models.BooleanField(default=False)
     extra_info = models.TextField(max_length=300)
+
+    def __str__(self):
+        return self.pet

@@ -32,4 +32,4 @@ class BookingForm(forms.ModelForm):
         self.fields['user'].required = False
 
         if user:
-            self.fields['pet'].queryset =Dashboard.objects.filter(user=user)
+            self.fields['pet'].queryset =Booking.objects.filter(user=user)

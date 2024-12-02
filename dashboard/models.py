@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 # Choice Fields
 Gender = (
@@ -15,6 +16,7 @@ class Pet(models.Model):
     """
     user = models.ForeignKey(User, related_name='pets', on_delete=models.CASCADE)
     pet = models.CharField(max_length=50)
+    pet_image = CloudinaryField('image')
     breed = models.CharField(max_length=50)
     gender = models.CharField(max_length=50, choices=Gender, default='male')
     colour = models.CharField(max_length=50)

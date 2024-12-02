@@ -1,7 +1,8 @@
 from django.urls import path
-from booking.views import AddBooking, Bookings
+from booking.views import AddBooking, Bookings, BookingDetail
 
 urlpatterns = [
-    path('', AddBooking.as_view(), name='add_booking'),
-    path('bookings/', Bookings.as_view(), name='bookings')
+    path("", AddBooking.as_view(), name="add_booking"),
+    path("bookings/", Bookings.as_view(), name="bookings"),
+    path("<slug:pk>/", BookingDetail.as_view(), name="booking_detail"),
 ]

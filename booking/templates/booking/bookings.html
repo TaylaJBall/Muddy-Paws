@@ -3,5 +3,23 @@
 {% block title %}Bookings{% endblock %}
 
 {% block content %}
+<h1 class="text-center p-2">
+    Your Bookings
+</h1>
+<div class="container d-flex flex-row flex-wrap justify-content-start">
+    {% for booking in bookings %}
+    <a href="{% url 'booking_detail.html' booking.id %}" class="bookings" aria-label="Click to view {{booking.service_type}}">
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{{pet.image.url}}" class="card-img-top" alt="Pet image for booking">
+            <div class="card-body">
+                <h2 class="card-title">{{booking.service_type}}</h2>
+                <p class="card-text">f"{pet.name} is booked in for a {service.type} on {booking_date} at {booking_time}"
+                </p>
+            </div>
+        </div>
+    </a>
+
+    {% endfor %}
+</div>
 
 {% endblock %}

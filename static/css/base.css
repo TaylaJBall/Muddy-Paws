@@ -84,3 +84,69 @@ footer {
     margin: 3% auto;
     border-radius: 5px;
 }
+
+/* Bookings */
+
+.bookings {
+    text-decoration: none;
+    color: var(--brown);
+}
+
+.bookings:hover {
+    cursor: pointer;
+}
+
+.booking-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.booking-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-date, .booking-time, .booking-detail {
+    width: 100%;
+}
+
+.booking-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-pic {
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 62.5em) {
+    .booking-info {
+        flex-direction: row;
+        border: 1px solid var(--beige);
+    }
+    
+    .recipe-img {
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    .booking-detail {
+        width: 60%;
+        padding: 2rem;
+    }
+
+    .booking-container {
+        flex-direction: row;
+    }
+
+    .booking-date {
+        width: 50%;
+    }
+
+    .booking-time {
+        width: 50%;
+    }
+}

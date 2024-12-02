@@ -8,20 +8,28 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('dashboard', '0001_initial'),
+        ("dashboard", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('booking', '0001_initial'),
+        ("booking", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='booking',
-            name='pet',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='customer_pet', to='dashboard.pet'),
+            model_name="booking",
+            name="pet",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="customer_pet",
+                to="dashboard.pet",
+            ),
         ),
         migrations.AlterField(
-            model_name='booking',
-            name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='bookings', to=settings.AUTH_USER_MODEL),
+            model_name="booking",
+            name="user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="bookings",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

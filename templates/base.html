@@ -15,7 +15,15 @@
     {% include 'includes/header.html' %}
     
     <main>
+        {% if messages %}
+        {% for message in messages %}
+            <p class="msg">
+                    {{ message }}
+            </p>
+        {% endfor %}
+        {% endif %}
         {% block content %}
+
         {% endblock %}
     </main>
 

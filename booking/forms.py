@@ -18,8 +18,6 @@ class BookingForm(forms.ModelForm):
 
         widgets = {
             "notes": forms.Textarea(attrs={"rows": 5}),
-            "booking_date": forms.DateInput(attrs={"readonly": "readonly"}),
-            "booking_time": forms.TimeInput(attrs={"readonly": "readonly"}),
             "slot": forms.DateTimeInput(attrs={"readonly": "readonly"}),
         }
 

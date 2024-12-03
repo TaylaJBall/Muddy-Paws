@@ -31,14 +31,12 @@ class Booking(models.Model):
     service_type = models.CharField(
         max_length=50, choices=ServiceType, default="PAMPER_PACKAGE"
     )
-    booking_date = models.DateField()
-    booking_time = models.TimeField()
-    slot = models.ForeignKey(Slot, on_delete=models.CASCADE)
+    slot = models.ForeignKey(Slot, on_delete=models.CASCADE, null=True, blank=True)
     slotapproved = models.BooleanField(default=False)
     notes = models.TextField(max_length=500)
 
     def __str__(self):
-        return f"Booking for {self.pet} for a {self.service_type} on {self.booking_date} at {self.booking_time}"
+        return f"Booking for {self.pet} for a {self.service_type} on {self.slot}"
 
     class Meta:
-        ordering = ["-booking_date", "-booking_time"]
+        ordering = ["-slot"]

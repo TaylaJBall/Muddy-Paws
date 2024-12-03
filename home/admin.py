@@ -9,10 +9,9 @@ class BookingAdmin(admin.ModelAdmin):
         'user',
         'pet',
         'service_type',
-        'booking_date',
-        'booking_time',
-        'approved',
+        'slot',
+        'slotapproved',
         'notes'
     )
 
-    list_filter = ('booking_date',)
+    list_filter = ('slot', 'slotapproved')

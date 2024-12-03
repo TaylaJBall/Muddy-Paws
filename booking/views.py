@@ -4,6 +4,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
 from django.core.management import call_command
 from django.http import JsonResponse
+from django.shortcuts import render
+from django.shortcuts import redirect
 
 from .models import Booking, Slot
 from .forms import BookingForm
@@ -20,6 +22,7 @@ def populate_slots_view(request):
         return JsonResponse({'status': 'error', 'message': str(e)})
 
 def available_slots(request):
+    available_slots = Slot.objects.filter(is_available=True)
     return render(request, 'available_slots.html')
 
     # Submitting a booking form

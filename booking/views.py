@@ -1,12 +1,43 @@
 from django.views.generic import CreateView, ListView, DetailView
-
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils import timezone
+from django.core.management import call_command
+from django.http import JsonResponse
 
-from .models import Booking
+from .models import Booking, Slot
 from .forms import BookingForm
 
 # Create your views here.
 
+# Slot Views
+@login_required
+def populate_slots_view(request):
+    try:
+        call_command('populate_slots')
+        return JsonResponse({'status': 'success', 'message': 'Slots populated successfully.'})
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)})
+
+def available_slots(request):
+    return render(request, 'available_slots.html')
+
+    # Submitting a booking form
+    if request.method == 'POST':
+        form = BookingForm(request.POST, available_slots=available_slots)
+        if form.is_valid():
+            form.save()
+            # Mark the slot as booked
+            slot = form.cleaned_data['slot']
+            slot.is_available = False
+            slot.save()
+            return redirect('dashboard/')
+    else:
+        form = BookingForm(available_slots=available_slots)
+
+    return render(request, 'available_slots.html', {'form': form, 'available_slots': available_slots})
+
+# Booking Views
 
 class Bookings(ListView):
     """

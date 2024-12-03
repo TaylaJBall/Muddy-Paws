@@ -9,6 +9,15 @@ ServiceType = (
     ("HAND_STRIP", "Hand Strip"),
 )
 
+# Slots Model
+class Slot(models.Model):
+    booking_date = models.DateField()
+    booking_time = models.TimeField()
+    is_available = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"Slot: {self.booking_date} at {self.booking_time}"
+
 # Booking Model
 
 
@@ -24,7 +33,8 @@ class Booking(models.Model):
     )
     booking_date = models.DateField()
     booking_time = models.TimeField()
-    approved = models.BooleanField(default=False)
+    slot = models.ForeignKey(Slot, on_delete=models.CASCADE)
+    slotapproved = models.BooleanField(default=False)
     notes = models.TextField(max_length=500)
 
     def __str__(self):

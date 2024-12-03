@@ -1,5 +1,5 @@
 from django import forms
-from .models import Booking
+from .models import Booking, Slot
 from dashboard.models import Pet
 
 
@@ -11,8 +11,7 @@ class BookingForm(forms.ModelForm):
         fields = [
             "pet",
             "service_type",
-            "booking_date",
-            "booking_time",
+            "slot"
             "approved",
             "notes",
         ]
@@ -21,25 +20,21 @@ class BookingForm(forms.ModelForm):
             "notes": forms.Textarea(attrs={"rows": 5}),
             "booking_date": forms.DateInput(attrs={"readonly": "readonly"}),
             "booking_time": forms.TimeInput(attrs={"readonly": "readonly"}),
+            "slot": forms.DateTimeInput(attrs={"readonly": "readonly"}),
         }
 
         labels = {
             "pet": "Pet Name",
             "service_type": "Service Type",
-            "booking_date": "Booking Date",
-            "booking_time": "Booking Time",
+            "slot": "Slot",
             "approved": "Approved?",
             "notes": "Notes",
         }
 
-    # def __init__(self, *args, **kwargs):
-    #     user = kwargs.pop("user", None)
-    #     print('user in form: ', user)
-    #     super(BookingForm, self).__init__(*args, **kwargs)
-    #     self.fields["user"].required = False
-
-    #     if user:
-    #         self.fields["pet"].queryset = Booking.objects.filter(user=user)
+    def __init__(self, *args, **kwargs):
+        available_slots = kwargs.pop('available_slots', [])
+        super().__init__(*args, **kwargs)
+        self.fields['slot'].queryset = available_slots
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop("user", None)

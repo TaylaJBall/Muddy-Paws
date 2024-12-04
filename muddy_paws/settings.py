@@ -34,8 +34,8 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['8000-taylajball-muddypaws-0qr1elsjh33.ws.codeinstitute-ide.net', 'muddy-paws-b5bd6fb9d716.herokuapp.com']
 
-CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
-
+CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net',
+                        'https://*.herokuapp.com']
 
 
 # Application definition
@@ -117,12 +117,12 @@ WSGI_APPLICATION = 'muddy_paws.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
-#}
+# }
 
 DATABASES = {
    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))

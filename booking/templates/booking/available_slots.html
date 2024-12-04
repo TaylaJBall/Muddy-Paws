@@ -1,13 +1,33 @@
-{% extends base.html %}
-
+{% extends "base.html" %}
+{% load static %}
 {% block title %}Available Slots{% endblock %}
+{% block content %}
 
 <h1>Select a Booking Slot</h1>
 
-<button id="populate-slots-btn">Populate Booking Slots</button>
-
 <div id="status-message"></div>
+<button class="btn" id="populate-slots-btn">Populate Booking Slots</button>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <h2>Available Slots:</h2>
+    <ul>
+        {% for slot in available_slots %}
+        <li>{{ slot.booking_date }} - {{ slot.booking_time }}</li>
+        {% endfor %}
+    </ul>
+
+    <button type="submit" href="add_booking.html">Book Slot</button>
+
+</form>
+
+<div id="json-container"></div>
 
 {% block extras %}
-<script src="{% static ‘/js/slots.js’ %}"></script>
+<script>
+    var populateSlotsUrl = "{% url 'populate_slots' %}";
+</script>
+<script src="{% static 'js/slots.js' %}"></script>
+{% endblock %}
 {% endblock %}

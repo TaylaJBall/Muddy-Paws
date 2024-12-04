@@ -3,6 +3,27 @@ from .models import Booking, Slot
 from dashboard.models import Pet
 
 
+class SlotForm(forms.ModelForm):
+    slot = forms.ModelChoiceField(queryset=Slot.objects.filter(is_available=True), required=True)
+
+    class Meta:
+        model = Slot
+        fields = [
+            'slot'
+        ]
+
+    def __init__(self, *args, **kwargs):
+        available_slots = kwargs.pop('available_slots', None)
+        super().__init__(*args, **kwargs)
+
+        if available_slots:
+            self.fields['slot'] = forms.ModelChoiceField(
+                queryset=available_slots,
+                required=True,
+                empty_label="Select a slot"
+            )
+
+
 class BookingForm(forms.ModelForm):
     """Form to create a booking"""
 

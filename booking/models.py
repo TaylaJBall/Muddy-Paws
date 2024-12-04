@@ -9,6 +9,7 @@ ServiceType = (
     ("HAND_STRIP", "Hand Strip"),
 )
 
+
 # Slots Model
 class Slot(models.Model):
     booking_date = models.DateField()

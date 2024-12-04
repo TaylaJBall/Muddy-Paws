@@ -3,6 +3,7 @@ from django.utils import timezone
 from datetime import timedelta
 from booking.models import Slot
 
+
 class Command(BaseCommand):
     help = 'Populate booking slots for the next 6 days a week, excluding Sunday'
 
@@ -28,12 +29,14 @@ class Command(BaseCommand):
 
             # Create 4 slots for each day
             for slot_time in slot_times:
-                start_time_str = f"{current_date} {slot_time['start']}"
+                booking_time_str = f"{current_date} {slot_time['start']}"
 
-                start_time = timezone.make_aware(timezone.datetime.strptime(start_time_str, "%Y-%m-%d %H:%M"))
+                booking_time = timezone.make_aware(timezone.datetime.strptime(booking_time_str, "%Y-%m-%d %H:%M"))
+
+                booking_date = booking_time.date()
 
                 # Create the slot if it doesn't exist
-                Slot.objects.get_or_create(start_time=start_time)
+                Slot.objects.get_or_create(booking_time=booking_time, booking_date=booking_date)
 
                 slots_created += 1
 

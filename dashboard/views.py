@@ -2,9 +2,11 @@ from django.views.generic import CreateView, ListView, DetailView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 from .models import Pet
 from .forms import PetForm
+from booking.models import Booking
 
 # Create your views here.
 
@@ -16,6 +18,22 @@ class Dashboard(LoginRequiredMixin, ListView):
     template_name = "dashboard.html"
     model = Pet
     context_object_name = "dashboard"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['bookings'] = Booking.objects.all()
+        return context
+
+
+class BookingDetail(DetailView):
+    model = Booking
+    template_name = "booking_detail.html"
+    context_object_name = "booking"
+
+    def get_object(self, queryset=None):
+        booking = super().get_object(queryset)
+        print(booking)
+        return booking
 
 
 class PetDetail(DetailView):

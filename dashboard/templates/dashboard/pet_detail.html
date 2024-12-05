@@ -1,0 +1,36 @@
+{% load static %}
+
+{% block title %}Your Pets{% endblock %}
+
+{% block content %}
+<div class="container dashboard">
+    <h1 class="text-center p-2">Your Pets</h1>
+
+    <div class="row">
+        {% for pet in pets %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <!-- Pet Image -->
+                    <img src="{{ pet.image.url }}" class="card-img-top" alt="Pet image for {{ pet.name }}">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pet.name }}</h5>
+                        <p class="card-text">Age: {{ pet.age }} years</p>
+                        <p class="card-text">Breed: {{ pet.breed }}</p>
+                        <p class="card-text">Description: {{ pet.description }}</p>
+                        <a href="{% url 'pet_detail' pet.id %}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <!-- Add Pet Button -->
+            <a href="add_pet.html" class="btn btn-success">Add New Pet</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -28,6 +28,7 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = [
+            "user",
             "pet",
             "service_type",
             "slot"
@@ -41,6 +42,7 @@ class BookingForm(forms.ModelForm):
         }
 
         labels = {
+            "user": "User",
             "pet": "Pet Name",
             "service_type": "Service Type",
             "slot": "Slot",

@@ -1,29 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Booking Detail - {{booking.pet}}{% endblock %}
+{% block title %}Booking Detail{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="booking-infor mt-3 p-1">
-        <div class="booking-img">
-            <img src="{{booking.image.url}}" alt="Your pet's profile image" class="booking-pic">
-        </div>
-        <div class="booking-detail">
-            <h1 class="text-center">{{booking.pet}}</h1>
-            <p class="text-center">Is booked in for a {{service_type}}</p>
-            <div class="booking-container">
-                <div class="booking-date p-3">
-                    <h2>Booking Date</h2>
-                    <p>{{ booking.slot|safe }}</p>
-                </div>
-            </div>
+<h1>Booking Details for {{ booking.id }}</h1>
 
-            {% if request.user == booking.user %}
-            <div class="text-center">
-                <a href="" class="btn btn-primary w-25">Delete</a>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-</div>
+<img src="{{ pet.pet_image }}" alt="Pet Image">
+<p><strong>Service Type:</strong> {{ booking.service_type }}</p>
+<p><strong>Pet Name:</strong> {{ booking.pet.name }}</p>
+<p><strong>Slot:</strong> {{ booking.slot }}</p>
+<p><strong>Status:</strong> {{ booking.status }}</p>
+
+<!-- Add more details as needed -->
 {% endblock %}

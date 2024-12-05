@@ -36,7 +36,6 @@ class Booking(models.Model):
     """
     A model to create and delete bookings
     """
-
     user = models.ForeignKey(User, related_name="bookings", on_delete=models.CASCADE)
     pet = models.ForeignKey(Pet, related_name="bookings", on_delete=models.CASCADE)
     service_type = models.CharField(

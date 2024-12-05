@@ -6,7 +6,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.core.serializers import serialize
 
-from .models import Booking, Slot
+from .models import Booking, Slot, Pet
 from .forms import BookingForm, SlotForm
 
 # Create your views here.
@@ -37,13 +37,14 @@ def add_booking(request, slot_id):
     if request.method == 'POST':
         form = BookingForm(request.POST, user=request.user)
         if form.is_valid():
-            pet = form.cleaned_data['pet']
+            pet_id = form.cleaned_data['pet']
             service_type = form.cleaned_data['service_type']
+            slot = form.cleaned_data['slot']
             notes = form.cleaned_data['notes']
 
-            pet_instance = Pet.objects.get(id=pet_id)
+            pet_instance = get_object_or_404(Pet, id=pet_id)
 
-            booking = Booking.create_booking_with_slot(
+            booking = Booking(
                 user=request.user,
                 pet=pet_instance,
                 service_type=service_type,
@@ -56,8 +57,7 @@ def add_booking(request, slot_id):
                 messages.success(request, 'Booking added successfully.')
                 return redirect('dashboard')
             else: 
-                messages.error(request, 'Selected slot is no longer available.')
-                return redirect('available_slots')
+                messages.error(request, 'There was an error with your booking. Please check the form.')
     else:
         form = BookingForm(user=request.user, selected_slot=selected_slot)
 
@@ -134,7 +134,7 @@ class BookingDetail(DetailView):
     View a single booking
     """
 
-    template_name = "booking/bookings.html"
+    template_name = "booking/booking_detail.html"
     model = Booking
     context_object_name = "booking"
 

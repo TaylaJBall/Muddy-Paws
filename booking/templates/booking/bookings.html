@@ -1,3 +1,4 @@
+{% load static %}
 {% block content %}
 <h1 class="text-center p-2">
     Your Bookings
@@ -17,5 +18,9 @@
 
     {% endfor %}
 </div>
+
+{% block extras %}
+<script src="{% static 'js/slots.js' %}"></script>
+{% endblock %}
 
 {% endblock %}

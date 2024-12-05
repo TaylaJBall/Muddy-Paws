@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const statusMessage = document.getElementById('status-message');
     const jsonContainer = document.getElementById('json-container');
 
+
     populateButton.addEventListener('click', function(){
         // Initial status mesage before starting the request
         statusMessage.textContent = 'populating slots... Please wait.';
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     statusMessage.style.color = 'green';
 
                     // Display JSON data
-                    slotsSelect.innerHTML = '';
+                    populateButton.innerHTML = '';
 
                     if (data.slots && data.slots.length > 0) {
                         const slots = JSON.parse(data.slots);
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             const option = document.createElement('option');
                             option.value = `${slotData.booking_date} ${slotData.booking_time}`;
                             option.textContent = `${slotData.booking_date} ${slotData.booking_time}`;
-                            slotsSelect.appendChild(option);
+                            populateButton.appendChild(option);
                         });
                     }else{
                         const option = document.createElement('option');

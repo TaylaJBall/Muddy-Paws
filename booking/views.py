@@ -2,7 +2,7 @@ from django.views.generic import CreateView, ListView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.management import call_command
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.core.serializers import serialize
 
@@ -11,15 +11,69 @@ from .forms import BookingForm, SlotForm
 
 # Create your views here.
 
+# Select slot view
+@login_required
+def select_slot(request):
+    if request.method == 'POST':
+        form = SlotForm(request.POST)
+        if form.is_valid():
+            selected_slot = form.cleaned_data['slot']
+            return redirect('bookin:add_booking', slot_id=selected_slot.id)
+    else :
+        form = SlotForm(available_slots=Slot.objects.filter(is_available=True))
+
+    available_slots = Slot.objects.filter(is_available=True)
+    context = {
+        'form': form,
+        'available_slots': available_slots
+    }
+    return render(request, 'booking/available_slots.html', context)
+
+# Add booking view
+@login_required
+def add_booking(request, slot_id):
+    selected_slot = get_object_or_404(Slot, id=slot_id, is_available=True)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, user=request.user)
+        if form.is_valid():
+            pet = form.cleaned_data['pet']
+            service_type = form.cleaned_data['service_type']
+            notes = form.cleaned_data['notes']
+
+            pet_instance = Pet.objects.get(id=pet_id)
+
+            booking = Booking.create_booking_with_slot(
+                user=request.user,
+                pet=pet_instance,
+                service_type=service_type,
+                slot=selected_slot,
+                notes=notes
+            )
+            booking.save()
+
+            if booking:
+                messages.success(request, 'Booking added successfully.')
+                return redirect('dashboard')
+            else: 
+                messages.error(request, 'Selected slot is no longer available.')
+                return redirect('available_slots')
+    else:
+        form = BookingForm(user=request.user, selected_slot=selected_slot)
+
+    context = {
+        'form': form,
+        'selected_slot': selected_slot,
+    }
+    return render(request, 'bookings/add_booking.html', context)
+
 
 # Slot Views
 @login_required
 def populate_slots_view(request):
     try:
         call_command('populate_slots')
-
         slots = Slot.objects.all()
-
         slots_data = serialize('json', slots)
 
         return JsonResponse({
@@ -55,10 +109,8 @@ def available_slots(request):
         form = SlotForm(request.POST)
         if form.is_valid():
             # Mark the slot as booked
-            slot = form.cleaned_data['slot']
-            slot.is_available = False
-            slot.save()
-            return redirect('dashboard/')
+            selected_slot = form.cleaned_data['slot']
+            return redirect('booking:add_booking', slot_id=selected_slot.id)
     else:
         form = SlotForm(available_slots=available_slots)
 

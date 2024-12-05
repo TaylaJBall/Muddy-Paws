@@ -19,6 +19,16 @@ class Slot(models.Model):
     def __str__(self):
         return f"Slot: {self.booking_date} at {self.booking_time}"
 
+    @classmethod
+    def select_slot(cls, slot_id):
+        try:
+            slot = cls.objects.get(id=slot_id, is_available=True)
+            slot.is_available = False
+            slot.save()
+            return slot
+        except cls.DoesNotExist:
+            return None
+
 # Booking Model
 
 
@@ -41,3 +51,16 @@ class Booking(models.Model):
 
     class Meta:
         ordering = ["-slot"]
+    @classmethod
+    def create_booking_with_slot(cls, user, pet, service_type, slot_id, notes):
+        selected_slot = Slot.select_slot(slot_id)
+        if selected_slot:
+            booking = cls.objects.create(
+                user=user,
+                pet=pet,
+                service_type=service_type,
+                slot=selected_slot,
+                notes=notes
+            )
+            return booking
+        return None

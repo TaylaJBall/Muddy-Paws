@@ -27,7 +27,7 @@
               <div class="dropdown-menu">
                 {% if request.user.is_authenticated %}
                 <a class="dropdown-item {% if url_name == 'dashboard' %}active{% endif %}" href="{% url 'dashboard' %}">Dashboard</a>
-                <a class="dropdown-item {% if url_name == 'available_slots' %}active{% endif %}" href="{% url 'available_slots' %}">Add Booking</a>
+                <a class="dropdown-item {% if url_name == 'available_slots' %}active{% endif %}" href="{% url 'booking:available_slots' %}">Add Booking</a>
                 <a class="dropdown-item {% if url_name == 'accounts_logout' %}active{% endif %}" href="/accounts/logout/">Log Out</a>
                 {% else %}
                 <a class="dropdown-item {% if url_name == 'accounts_signup' %}active{% endif %}" href="/accounts/signup/">Register</a>

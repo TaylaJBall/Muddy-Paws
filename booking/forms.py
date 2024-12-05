@@ -1,10 +1,12 @@
 from django import forms
 from .models import Booking, Slot
 from dashboard.models import Pet
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit, Row, Column
 
 
 class SlotForm(forms.ModelForm):
-    slot = forms.ModelChoiceField(queryset=Slot.objects.filter(is_available=True), required=True)
+    slot = forms.ModelChoiceField(queryset=Slot.objects.filter(is_available=True), required=True, empty_label="Select a slot")
 
     class Meta:
         model = Slot
@@ -17,11 +19,7 @@ class SlotForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         if available_slots:
-            self.fields['slot'] = forms.ModelChoiceField(
-                queryset=available_slots,
-                required=True,
-                empty_label="Select a slot"
-            )
+            self.fields['slot'].queryset = available_slots
 
 
 class BookingForm(forms.ModelForm):
@@ -51,11 +49,28 @@ class BookingForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        available_slots = kwargs.pop('available_slots', [])
-        super().__init__(*args, **kwargs)
-        self.fields['slot'].queryset = available_slots
-
-    def __init__(self, *args, **kwargs):
         user = kwargs.pop("user", None)
+        available_slots = kwargs.pop('available_slots', [])
+        selected_slot = kwargs.pop("selected_slot", None)
+        
         super().__init__(*args, **kwargs)
-        self.fields['pet'].queryset = Pet.objects.filter(user=user)
+
+    
+
+        if user:
+            self.fields['pet'].queryset = Pet.objects.filter(user=user)
+
+        if selected_slot:
+            self.selected_slot = select_slot
+        
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.layout = Layout(
+            Row(
+                Column('pet', css_class='form-group col-md-6 mb-0'),
+                Column('service_type', css_class='form-group col-md-6 mb-0'),
+                css_class='form-row'
+            ),
+            'notes',
+            Submit('submit', 'Book Now', css_class='btn btn-primary')
+        )

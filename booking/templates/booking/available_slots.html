@@ -7,7 +7,7 @@
 
 <div id="status-message"></div>
 <button class="btn" id="populate-slots-btn">Populate Booking Slots</button>
-<form method="post">
+<form method="post" action="{% url 'booking:available_slots' %}">
     {% csrf_token %}
     {{ form.as_p }}
 
@@ -18,7 +18,7 @@
         {% endfor %}
     </ul>
 
-    <button type="submit" href="add_booking.html">Book Slot</button>
+    <button type="submit">Book Slot</button>
 
 </form>
 
@@ -26,7 +26,7 @@
 
 {% block extras %}
 <script>
-    var populateSlotsUrl = "{% url 'populate_slots' %}";
+    var populateSlotsUrl = "{% url 'booking:populate_slots' %}";
 </script>
 <script src="{% static 'js/slots.js' %}"></script>
 {% endblock %}

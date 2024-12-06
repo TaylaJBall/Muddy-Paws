@@ -6,7 +6,7 @@ from django.shortcuts import render
 
 from .models import Pet
 from .forms import PetForm
-from booking.models import Booking
+from booking.models import Booking, Slot
 
 # Create your views here.
 
@@ -18,11 +18,18 @@ class Dashboard(LoginRequiredMixin, ListView):
     template_name = "dashboard.html"
     model = Pet
     context_object_name = "dashboard"
+    
+    @login_required
+    def dashboard(request):
+        bookings = Booking.objects.filter(user=request.user)
+        pets = Pet.objects.filter(iser=request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['bookings'] = Booking.objects.all()
         return context
+
+        return render(reques, "dashboard/dashboard.html", context)
 
 
 class BookingDetail(DetailView):

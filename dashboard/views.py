@@ -26,10 +26,11 @@ class Dashboard(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['pets'] = Pet.objects.filter(user=self.request.user)
         context['bookings'] = Booking.objects.all()
         return context
 
-        return render(reques, "dashboard/dashboard.html", context)
+        return render(request, "dashboard/dashboard.html", context)
 
 
 class BookingDetail(DetailView):

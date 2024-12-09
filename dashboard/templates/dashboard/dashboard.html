@@ -12,10 +12,10 @@
                 {% load cloudinary %}
                 <div class="card mb-4">
                     <!-- Pet Image -->
-                    {% cloudinary pet.image quality=75 width=200 height=200 force_format='WEBP' blank=False null=False %}
+                    {% cloudinary pet.image quality=75 width=200 height=200 format="webp" %}
                     <p>{{ pet.pet }}</p>
                     <!-- Button to view details in iframe -->
-                    <button class="btn btn-primary" data-id=""{{ pet.id }} onclick="loadPetDetail(this)">View Details</button>
+                    <button class="btn btn-primary" data-id="{{ pet.id }}" onclick="loadPetDetail(this)">View Details</button>
                 </div>
             {% empty %}
                 <p>No pets available.</p>

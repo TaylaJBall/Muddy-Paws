@@ -9,11 +9,17 @@ ServiceType = (
     ("HAND_STRIP", "Hand Strip"),
 )
 
+times = (
+    ("10:00", "10:00"),
+    ("12:00", "12:00"),
+    ("14:00", "14:00"),
+    ("16:00", "16:00"),
+)
 
 # Slots Model
 class Slot(models.Model):
     booking_date = models.DateField()
-    booking_time = models.TimeField()
+    booking_time = models.CharField(choices = times)
     is_available = models.BooleanField(default=True)
 
     def __str__(self):

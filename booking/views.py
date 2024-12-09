@@ -12,22 +12,22 @@ from .forms import BookingForm, SlotForm
 # Create your views here.
 
 # Select slot view
-@login_required
-def select_slot(request):
-    if request.method == 'POST':
-        form = SlotForm(request.POST)
-        if form.is_valid():
-            selected_slot = form.cleaned_data['slot']
-            return redirect('bookin:add_booking', slot_id=selected_slot.id)
-    else :
-        form = SlotForm(available_slots=Slot.objects.filter(is_available=True))
+# @login_required
+# def select_slot(request):
+#     if request.method == 'POST':
+#         form = SlotForm(request.POST)
+#         if form.is_valid():
+#             selected_slot = form.cleaned_data['slot']
+#             return redirect('bookin:add_booking', slot_id=selected_slot.id)
+#     else :
+#         form = SlotForm(available_slots=Slot.objects.filter(is_available=True))
 
-    available_slots = Slot.objects.filter(is_available=True)
-    context = {
-        'form': form,
-        'available_slots': available_slots
-    }
-    return render(request, 'booking/available_slots.html', context)
+#     available_slots = Slot.objects.filter(is_available=True)
+#     context = {
+#         'form': form,
+#         'available_slots': available_slots
+#     }
+#     return render(request, 'booking/available_slots.html', context)
 
 # Add booking view
 @login_required

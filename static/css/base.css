@@ -158,6 +158,21 @@ footer {
     align-items: center;
 }
 
+/* Pets */
+.card {
+    height: 90%;
+    margin-top: 1rem;
+    background-color: var(--light-beige);
+}
+
+.pets {
+    text-decoration: none;
+    color: var(--brown);
+}
+
+.pets:hover {
+    cursor: pointer;
+}
 
 @media screen and (min-width: 62.5em) {
     .booking-info {

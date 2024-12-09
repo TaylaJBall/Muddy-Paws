@@ -11,14 +11,15 @@
             <div class="col-md-4">
                 <div class="card mb-4">
                     <!-- Pet Image -->
-                    <img src="{{ pet.image.url }}" class="card-img-top" alt="Pet image for {{ pet.name }}">
+                    <img src="{{ pet.pet_image.url }}" class="card-img-top" alt="Pet image for {{ pet.pet }}">
                     
                     <div class="card-body">
-                        <h5 class="card-title">{{ pet.name }}</h5>
+                        <h3 class="card-title">{{ pet.pet }}</h3>
                         <p class="card-text">Age: {{ pet.age }} years</p>
                         <p class="card-text">Breed: {{ pet.breed }}</p>
-                        <p class="card-text">Description: {{ pet.description }}</p>
-                        <a href="{% url 'pet_detail' pet.id %}" class="btn btn-primary">View Details</a>
+                        <p class="card-text">Gender: {{ pet.gender }}</p>
+                        <p class="card-text">Colour: {{ pet.colour }}</p>
+                        <p class="card-text">Extra Information: {{ pet.extra_info}}</p>
                     </div>
                 </div>
             </div>

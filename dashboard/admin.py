@@ -17,3 +17,4 @@ class PetAdmin(admin.ModelAdmin):
         'spayed_neutered',
         'extra_info'
     ]
+    list_filter = ('user',)

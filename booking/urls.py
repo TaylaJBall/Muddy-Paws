@@ -6,7 +6,7 @@ from . import views
 app_name = 'booking'
 
 urlpatterns = [
-    path('select-slot/', views.select_slot, name='select_slot'),
+    # path('select-slot/', views.select_slot, name='select_slot'),
     path("add_booking/<int:slot_id>/", AddBooking.as_view(), name="add_booking"),
     path('populate-slots/', views.populate_slots_view, name='populate_slots'),
     path("available-slots/", views.available_slots, name='available_slots'),

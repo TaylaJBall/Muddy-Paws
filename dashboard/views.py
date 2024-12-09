@@ -15,19 +15,19 @@ class Dashboard(LoginRequiredMixin, ListView):
     View all pets
     """
 
-    template_name = "dashboard.html"
+    template_name = "dashboard/dashboard.html"
     model = Pet
-    context_object_name = "dashboard"
+    context_object_name = "pets"
     
     @login_required
     def dashboard(request):
         bookings = Booking.objects.filter(user=request.user)
-        pets = Pet.objects.filter(iser=request.user)
+        pets = Pet.objects.filter(user=request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['pets'] = Pet.objects.filter(user=self.request.user)
-        context['bookings'] = Booking.objects.all()
+        context['bookings'] = Booking.objects.filter(user=self.request.user)
         return context
 
         return render(request, "dashboard/dashboard.html", context)
@@ -80,4 +80,4 @@ class AddPet(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super().form_valid(form)
+        return super(AddPet, self).form_valid(form)

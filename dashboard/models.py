@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django_resized import ResizedImageField
 from django.conf import settings
 
 # Choice Fields
@@ -15,9 +16,11 @@ class Pet(models.Model):
     """
     A model for creating a Pet profile
     """
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='pets', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='pet_owner', on_delete=models.CASCADE)
     pet = models.CharField(max_length=50)
-    pet_image = CloudinaryField('image', null=True, blank=True)
+    pet_image = ResizedImageField(
+        size=[400, None], quality=75, upload_to='pets/', force_format='WEBP',
+        blank=False, null=False)
     breed = models.CharField(max_length=50)
     gender = models.CharField(max_length=50, choices=Gender, default='male')
     colour = models.CharField(max_length=50)
@@ -29,4 +32,4 @@ class Pet(models.Model):
     extra_info = models.TextField(max_length=300)
 
     def __str__(self):
-        return self.pet
+        return str(self.pet)

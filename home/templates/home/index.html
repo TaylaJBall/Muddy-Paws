@@ -3,21 +3,30 @@
 {% block content %}
 <div class="container home">
     <div class="row">
-        <div class="col-6 col-12-md mp-img">
+        <div class="col-12 col-md-6 mp-img">
             <img src="../static/images/Muddy-Paws-Image.webp" alt="Muddy Paws Parlour">
         </div>
-        <div class="col-6 col-12-md about">
+        <div class="col-12 col-md-6 about">
             <h2 class="title"></h2>
-            <p class="about-p">Welcome to Muddy Paws Dog Grooming, your premier dog grooming service located in the heart of Maghull, Liverpool. At Muddy Paws, we understand that your furry friend is a cherished member of your family, and we are dedicated to providing the highest level of care and grooming services tailored to meet their unique needs.</p>
+            <p class="about-p">Welcome to Muddy Paws Dog Grooming, your premier dog grooming service located in the
+                heart of Maghull, Liverpool. At Muddy Paws, we understand that your furry friend is a cherished member
+                of your family, and we are dedicated to providing the highest level of care and grooming services
+                tailored to meet their unique needs.</p>
             <br>
-            <p class="about-p">Join the Muddy Paws family today and give your dog the grooming experience they deserve! We look forward to meeting you and your furry companion soon.</p>
-            <button class="btn sign-in-btn"><a class="{% if url_name == 'accounts_login' %}active{% endif %}" href="/account/login.html">Sign In</a></button>
+            <p class="about-p">Join the Muddy Paws family today and give your dog the grooming experience they deserve!
+                We look forward to meeting you and your furry companion soon.</p>
+            <button class="btn sign-in-btn"><a class="{% if url_name == 'accounts_login' %}active{% endif %}"
+                    href="/account/login.html">Sign In</a></button>
         </div>
     </div>
     <div class="row">
-        <div class="col-6 col-12-md our-services">
+        <div class="col-12 col-md-6 prices">
+            <img class="prices-img" src="../../../static/images/Muddy-Paws-Price-List.webp" alt="Muddy Paws price list">
+        </div>
+        <div class="col-12 col-md-6 our-services">
             <h2>Our Services</h2>
-            <p>At Muddy Paws, we offer comprehensive grooming services designed to keep your furry friend looking and feeling their best. Our grooming packages include:</p>
+            <p>At Muddy Paws, we offer comprehensive grooming services designed to keep your furry friend looking and
+                feeling their best. Our grooming packages include:</p>
             <h3>Grooming Services</h3>
             <h4>Basic Package</h4>
             <ul>Shampoo</ul>
@@ -33,10 +42,8 @@
             <ul>All basic services</ul>
             <ul>Professional hand stripping technique</ul>
             <br>
-            <p>Each service is carefully tailored to ensure your pet receives top-quality care and leaves looking fresh, clean, and stylish.</p>
-        </div>
-        <div class="col-6 col-12-md prices">
-            <img class="prices-img" src="../../../static/images/Muddy-Paws-Price-List.webp" alt="Muddy Paws price list">
+            <p>Each service is carefully tailored to ensure your pet receives top-quality care and leaves looking fresh,
+                clean, and stylish.</p>
         </div>
     </div>
 </div>

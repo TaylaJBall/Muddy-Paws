@@ -1,37 +1,39 @@
+{% extends "base.html" %}
 {% load static %}
 
-{% block title %}Your Pets{% endblock %}
+{% block title %}Pet Detail - {{pet.pet}}{% endblock %}
 
 {% block content %}
-<div class="container dashboard">
-    <h1 class="text-center p-2">Your Pets</h1>
-
-    <div class="row">
-        {% for pet in pets %}
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <!-- Pet Image -->
-                    <img src="{{ pet.pet_image.url }}" class="card-img-top" alt="Pet image for {{ pet.pet }}">
-                    
-                    <div class="card-body">
-                        <h3 class="card-title">{{ pet.pet }}</h3>
-                        <p class="card-text">Age: {{ pet.age }} years</p>
-                        <p class="card-text">Breed: {{ pet.breed }}</p>
-                        <p class="card-text">Gender: {{ pet.gender }}</p>
-                        <p class="card-text">Colour: {{ pet.colour }}</p>
-                        <p class="card-text">Extra Information: {{ pet.extra_info}}</p>
-                    </div>
-                </div>
+<div class="container">
+    <div class="pet-info mt-3 p-1">
+        <div class="pet-img">
+            <img src="{{ pet.pet_image.url }}" alt="Image of {{ pet.pet }}" class="pet-pic">
+        </div>
+        <div class="pet-detil">
+            <h1 class="text-center">{{ pet.pet }}</h1>
+            <p class="text-center">Added by Owner: {{ pet.user }}</p>
+            <br>
+            <p class="text-center">Breed: {{ pet.breed }}</p>
+            <p class="text-center">Gender: {{ pet.gender }}</p>
+            <p class="text-center">Colour: {{ pet.colour }}</p>
+            <p class="text-center">Age: {{ pet.age }}</p>
+            <p class="text-center">Allergies: {{ pet.allergies }}</p>
+            <p class="text-center">Vaccinated: {{ pet.vaccinated }}</p>
+            <p class="text-center">Microchipped: {{ pet.microchipped }}</p>
+            <p class="text-center">Spayed/Neutered: {{ pet.spayed_neutered }}</p>
+            {% if request.user == pet.user %}
+            <div class="text-center">
+                <a href="" class="btn btn-primary w-25">Edit</a>
+                <a href="" class="btn btn-primary w-25">Delete</a>
             </div>
-        {% endfor %}
-    </div>
-
-    <div class="row">
-        <div class="col-4">
-            <!-- Add Pet Button -->
-            <a href="add_pet.html" class="btn btn-success">Add New Pet</a>
+            {% endif %}
         </div>
     </div>
-
+    <div class="pet-container">
+        <div class="extra-info p-3">
+            <h2>Extra Information</h2>
+            <p>{{ pet.extra_info|safe }}</p>
+        </div>
+    </div>
 </div>
 {% endblock %}

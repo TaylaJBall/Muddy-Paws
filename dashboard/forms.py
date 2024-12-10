@@ -2,12 +2,13 @@ from django import forms
 from booking.models import Booking
 from .models import Pet
 
+
 class PetForm(forms.ModelForm):
     """Form to add a pet"""
 
     class Meta:
         model = Pet
-        exclude = ['user']
+        exclude = ["user"]
         fields = [
             "pet",
             "pet_image",

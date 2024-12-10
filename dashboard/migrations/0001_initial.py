@@ -15,20 +15,42 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Pet',
+            name="Pet",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pet', models.CharField(max_length=50)),
-                ('breed', models.CharField(max_length=50)),
-                ('gender', models.CharField(choices=[('male', 'Male'), ('female', 'Female')], default='male', max_length=50)),
-                ('colour', models.CharField(max_length=50)),
-                ('age', models.IntegerField()),
-                ('allergies', models.BooleanField(default=False)),
-                ('vaccinated', models.BooleanField(default=False)),
-                ('microchipped', models.BooleanField(default=False)),
-                ('spayed_neutered', models.BooleanField(default=False)),
-                ('extra_info', models.TextField(max_length=300)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='pets', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("pet", models.CharField(max_length=50)),
+                ("breed", models.CharField(max_length=50)),
+                (
+                    "gender",
+                    models.CharField(
+                        choices=[("male", "Male"), ("female", "Female")],
+                        default="male",
+                        max_length=50,
+                    ),
+                ),
+                ("colour", models.CharField(max_length=50)),
+                ("age", models.IntegerField()),
+                ("allergies", models.BooleanField(default=False)),
+                ("vaccinated", models.BooleanField(default=False)),
+                ("microchipped", models.BooleanField(default=False)),
+                ("spayed_neutered", models.BooleanField(default=False)),
+                ("extra_info", models.TextField(max_length=300)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="pets",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

@@ -10,6 +10,7 @@ from booking.models import Booking, Slot
 
 # Create your views here.
 
+
 class Dashboard(LoginRequiredMixin, ListView):
     """
     View all pets
@@ -18,7 +19,7 @@ class Dashboard(LoginRequiredMixin, ListView):
     template_name = "dashboard/dashboard.html"
     model = Pet
     context_object_name = "pets"
-    
+
     @login_required
     def dashboard(request):
         bookings = Booking.objects.filter(user=request.user)
@@ -26,8 +27,8 @@ class Dashboard(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['pets'] = Pet.objects.filter(user=self.request.user)
-        context['bookings'] = Booking.objects.filter(user=self.request.user)
+        context["pets"] = Pet.objects.filter(user=self.request.user)
+        context["bookings"] = Booking.objects.filter(user=self.request.user)
         return context
 
         return render(request, "dashboard/dashboard.html", context)
@@ -35,7 +36,7 @@ class Dashboard(LoginRequiredMixin, ListView):
 
 class BookingDetail(DetailView):
     model = Booking
-    template_name = "booking_detail.html"
+    template_name = "dashboard/booking_detail.html"
     context_object_name = "booking"
 
     def get_object(self, queryset=None):
@@ -66,17 +67,17 @@ class AddPet(LoginRequiredMixin, CreateView):
 
     @login_required
     def add_pet(request):
-        if request.method == 'POST':
-            form = PetForm(request,POST, request.FILES)
+        if request.method == "POST":
+            form = PetForm(request, POST, request.FILES)
             if form.is_valid():
                 pet = form.save(commit=False)
                 pet.user = request.user
                 pet.save(Dashboard)
-                return redirect('dashboard')
-        
+                return redirect("dashboard")
+
         else:
             form = PetForm()
-        return render(request, 'dashboard/add_pet.html', {'form': form})
+        return render(request, "dashboard/add_pet.html", {"form": form})
 
     def form_valid(self, form):
         form.instance.user = self.request.user

@@ -5,14 +5,13 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-
+<h1 class="text-center p-2">
+    My Pets
+</h1>
 <div class="container d-flex flex-row flex-wrap justify-content-center">
-    <h1 class="text-center p-2">
-        My Pets
-    </h1>
 
     {% for pet in pets %}
-    <a href="" class="pets" aria-label="Click to view {{pet.pet}}">
+    <a href="{% url 'pet_detail' pet.id %}" class="pets" aria-label="Click to view {{pet.pet}}">
         <div class="card m-3" style="width: 18rem;">
             <img src="{{pet.pet_image.url}}" class="card-img-top" alt="image of {{pet.pet}}">
             <div class="card-body">

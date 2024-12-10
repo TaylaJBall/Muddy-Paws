@@ -5,24 +5,30 @@ from django_resized import ResizedImageField
 from django.conf import settings
 
 # Choice Fields
-Gender = (
-    ('male', 'Male'),
-    ('female', 'Female')
-)
+Gender = (("male", "Male"), ("female", "Female"))
 
 # Create your models here.
+
 
 class Pet(models.Model):
     """
     A model for creating a Pet profile
     """
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='pet_owner', on_delete=models.CASCADE)
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name="pet_owner", on_delete=models.CASCADE
+    )
     pet = models.CharField(max_length=50)
     pet_image = ResizedImageField(
-        size=[400, None], quality=75, upload_to='pets/', force_format='WEBP',
-        blank=False, null=False)
+        size=[400, None],
+        quality=75,
+        upload_to="pets/",
+        force_format="WEBP",
+        blank=False,
+        null=False,
+    )
     breed = models.CharField(max_length=50)
-    gender = models.CharField(max_length=50, choices=Gender, default='male')
+    gender = models.CharField(max_length=50, choices=Gender, default="male")
     colour = models.CharField(max_length=50)
     age = models.IntegerField()
     allergies = models.BooleanField(default=False)

@@ -15,7 +15,7 @@
             <p class="about-p">Join the Muddy Paws family today and give your dog the grooming experience they deserve!
                 We look forward to meeting you and your furry companion soon.</p>
             <button class="btn sign-in-btn mb-4">
-                <a class="{% if url_name == 'accounts_login' %}active{% endif %}" href="/account/login.html">Sign In</a>
+                <a href="{% url 'account_login' %}">Sign In</a>
             </button>
         </div>
     </div>

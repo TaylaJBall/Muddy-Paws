@@ -13,9 +13,20 @@
     --light-grey: #F2F4F8;
 }
 
+button:hover {
+    background-color: var(--brown);
+    color: var(--yellow);
+}
+
 html, body {
     height: 100%;
     font-family: var(--font);
+}
+
+.btn {
+    background-color: var(--yellow);
+    color: var(--brown);
+    border-color: var(--brown);
 }
 
 p {
@@ -23,6 +34,7 @@ p {
 }
 
 body {
+    color: var(--brown);
     display: flex;
     flex-direction: column;
 }
@@ -67,10 +79,10 @@ a.nav-link {
 footer {
     flex-shrink: 0;
     background-color: var(--yellow);
-    display: flex;
+    display: flex !important;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    color: var(--brown);
 }
 
 .social-icon {
@@ -82,6 +94,34 @@ footer {
     border-bottom: 2px solid var(--brown);
     font-weight: 500;
 }
+
+/* message box */
+
+.alert-container {
+    background-color: transparent;
+}
+
+.alert {
+    background-color: var(--yellow);
+}
+
+.btn-close {
+    background-color: var(--brown);
+    color: var(--yellow);
+    box-sizing:content-box;
+    width: 1em;
+    height: 1em;
+    padding: .25em .25em;
+    border: 0;
+    border-radius: .25rem;
+}
+
+.msg-btn {
+    background-color: var(--brown);
+    color: var(--yellow);
+}
+
+
 
 /* Home */
 
@@ -109,12 +149,17 @@ footer {
     color: var(--brown);
 }
 
+.our-services > ul {
+    display: inline-block;
+}
+
 .home {
     padding: 50px 50px 50px;
 }
 
 .sign-in-btn {
     background-color: var(--yellow);
+    color: var(--brown);
     width: 60px;
 }
 
@@ -127,7 +172,24 @@ footer {
     font-size: 30px;
 }
 
+/* Booking Page */
+
+.carousel-inner img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.carousel-inner {
+    height: 500px;
+}
+
+.carousel-item {
+    transition: trasform 0.5s ease;
+}
+
 /* Bookings */
+
 
 .bookings {
     text-decoration: none;
@@ -256,8 +318,4 @@ footer {
     .extra-info {
         width: 100%;
     }
-}
-
-@media screen and(max-width:768px) {
-    
 }

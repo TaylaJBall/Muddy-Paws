@@ -2,6 +2,7 @@ from django.views.generic import CreateView, ListView, DetailView, DeleteView, U
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.shortcuts import render
 
 from .models import Pet
@@ -81,6 +82,7 @@ class AddPet(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        messages.success(self.request, f'Your pet has been added successfully!')
         return super(AddPet, self).form_valid(form)
 
 
@@ -95,9 +97,14 @@ class EditPet(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         return self.request.user == self.get_object().user
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        messages.success(self.request, f'Your pet has been edited successfully!')
+        return super().form_valid(form)
 
 
-class DeletePet(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class DeletePet(LoginRequiredMixin, UserPassesTestMixin, DeleteView,):
     """
     Delete a Pet
     """
@@ -106,4 +113,9 @@ class DeletePet(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         return self.request.user == self.get_object().user
+
+    def form_valid(self, form):
+        messages.success(self.request, f'Your pet has been deleted successfully!')
+        return super().form_valid(form)
+    
     

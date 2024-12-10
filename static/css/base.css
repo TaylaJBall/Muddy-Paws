@@ -188,50 +188,6 @@ footer {
     transition: trasform 0.5s ease;
 }
 
-/* Bookings */
-
-
-.bookings {
-    text-decoration: none;
-    color: var(--brown);
-}
-
-.bookings:hover {
-    cursor: pointer;
-}
-
-.booking-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.booking-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.booking-date, .booking-time, .booking-detail {
-    width: 100%;
-}
-
-.booking-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.booking-pic {
-    width: 100%;
-    height: auto;
-}
-
-#populate-slots-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Pets */
 .card {
     height: 90%;

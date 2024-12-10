@@ -7,7 +7,6 @@ from django.shortcuts import render
 
 from .models import Pet
 from .forms import PetForm
-from booking.models import Booking, Slot
 
 # Create your views here.
 
@@ -33,17 +32,6 @@ class Dashboard(LoginRequiredMixin, ListView):
         return context
 
         return render(request, "dashboard/dashboard.html", context)
-
-
-class BookingDetail(DetailView):
-    model = Booking
-    template_name = "dashboard/booking_detail.html"
-    context_object_name = "booking"
-
-    def get_object(self, queryset=None):
-        booking = super().get_object(queryset)
-        print(booking)
-        return booking
 
 
 class PetDetail(DetailView):

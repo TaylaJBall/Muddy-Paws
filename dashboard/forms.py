@@ -1,5 +1,4 @@
 from django import forms
-from booking.models import Booking
 from .models import Pet
 
 

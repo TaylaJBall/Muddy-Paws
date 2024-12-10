@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Pet{% endblock %}
+{% block content %}
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" class="p-2 form">
+        <h1 class="text-center">Edit Pet</h1>
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form|crispy}}
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-2">Edit Pet</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

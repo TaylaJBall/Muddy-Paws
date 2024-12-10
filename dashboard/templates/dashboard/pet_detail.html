@@ -7,7 +7,7 @@
         <!-- Left: Pet Image -->
         <div class="pet-img col-12 col-md-6">
             {% if "placeholder" in pet.pet_image.url %}
-            <img src="{{ static 'images/placeholder_img.webp'}}" alt="Placeholder image of cartoon dog" class="img-fluid rounded shadow">
+            <img src="{% static 'images/placeholder_img.webp' %}" alt="Placeholder image of cartoon dog" class="img-fluid rounded shadow">
             {% else %}
             <img src="{{ pet.pet_image.url }}" alt="Image of {{ pet.pet }}" class="img-fluid rounded shadow">
             {% endif %}
@@ -43,8 +43,8 @@
     </div>
     {% if request.user == pet.user %}
     <div class="text-center mt-3">
-        <a href="#" class="btn btn-primary me-2">Edit</a>
-        <a href="#" class="btn btn-danger">Delete</a>
+        <a href="{% url 'edit_pet' pet.id %}" class="btn btn-primary me-2">Edit</a>
+        <a href="{% url 'delete_pet' pet.id %}" class="btn btn-danger">Delete</a>
     </div>
     {% endif %}
 </div>

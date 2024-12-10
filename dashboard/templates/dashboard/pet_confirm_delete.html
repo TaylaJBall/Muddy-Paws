@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Pet {{ object.pet }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-2">Confirm Pet Deletion</h1>
+    <div class="d-flex justify-content-center pt-3">
+        <form method="post" class="text-center">
+            {% csrf_token %}
+            <p>Are you sure you want to delete "{{object.pet}}"?</p>
+            <input type="submit" value="confirm" class="btn btn-primary w-25">
+        </form>
+    </div>
+</div>
+{% endblock %}

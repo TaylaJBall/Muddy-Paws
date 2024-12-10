@@ -1,6 +1,6 @@
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
@@ -82,3 +82,28 @@ class AddPet(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AddPet, self).form_valid(form)
+
+
+class EditPet(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    Edit a Pet
+    """
+    template_name = 'dashboard/edit_pet.html'
+    model = Pet
+    form_class = PetForm
+    success_url = '/dashboard/'
+
+    def test_func(self):
+        return self.request.user == self.get_object().user
+
+
+class DeletePet(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    Delete a Pet
+    """
+    model = Pet
+    success_url = '/dashboard/'
+
+    def test_func(self):
+        return self.request.user == self.get_object().user
+    

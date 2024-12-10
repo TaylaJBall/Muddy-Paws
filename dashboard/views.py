@@ -22,13 +22,11 @@ class Dashboard(LoginRequiredMixin, ListView):
 
     @login_required
     def dashboard(request):
-        bookings = Booking.objects.filter(user=request.user)
         pets = Pet.objects.filter(user=request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["pets"] = Pet.objects.filter(user=self.request.user)
-        context["bookings"] = Booking.objects.filter(user=self.request.user)
         return context
 
         return render(request, "dashboard/dashboard.html", context)

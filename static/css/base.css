@@ -99,6 +99,7 @@ footer {
 
 .alert-container {
     background-color: transparent;
+    margin-top: 20px;
 }
 
 .alert {
@@ -193,6 +194,14 @@ footer {
     height: 90%;
     margin-top: 1rem;
     background-color: var(--light-beige);
+}
+
+.card-body {
+    overflow: hidden;
+}
+
+.pet-buttons {
+    margin-bottom: 20px;
 }
 
 .pets {

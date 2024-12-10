@@ -42,7 +42,7 @@
         </div>
     </div>
     {% if request.user == pet.user %}
-    <div class="text-center mt-3">
+    <div class="pet-buttons text-center mt-3">
         <a href="{% url 'edit_pet' pet.id %}" class="btn btn-primary me-2">Edit</a>
         <a href="{% url 'delete_pet' pet.id %}" class="btn btn-danger">Delete</a>
     </div>

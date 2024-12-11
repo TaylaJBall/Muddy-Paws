@@ -24,7 +24,7 @@ class Pet(models.Model):
         quality=75,
         upload_to="pets/",
         force_format="WEBP",
-        default='placeholder'
+        default="placeholder",
     )
     breed = models.CharField(max_length=50)
     gender = models.CharField(max_length=50, choices=Gender, default="male")

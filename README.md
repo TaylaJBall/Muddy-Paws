@@ -55,40 +55,64 @@ I have many future features planned for this project which I will outline furthe
 
 ### User Stories
 
-Shown below are my User Stories
+During the development process, it became clear that creating a complete booking system within the given timeframe was more challenging than initially anticipated. As a result, the project scope was adjusted to focus on core functionalities that could be successfully implemented and serve as a foundation for future development.
+
+Shown below is my Project Board which shows the features i was not able to implement in the given timeline.
+
+[Project Board](/documentation/testing/Project-board.png)
 
 
 ## Design
 
 ### Colour Scheme
 
-I chose this colour palette as the colours match the asthetic in the grooming parlour.
+I chose this colour palette as the colours match the asthetic in the grooming parlour. 
+
+![Colour Palette](/documentation/testing/Muddy%20Paws%20Palette.png)
 
 
 ### Typography
 
+The font I used was:
+![Just Another Hand Font](/documentation/testing/Font.png)
+
+I chose this font because it wasnt too robotic, as the business is a small local business, the owner wanted it to feel warm and welcoming.
 
 ### Imagery
 
-Use this section to explain what sort of imagery you plan to use through your site.
+The imagery I used throughout the site was provided by the business owner. 
 
 ### Wireframes
 
-I made my wireframes using Figma.
+I made my wireframes using Figma. As the scope of the project changed there are some differences from the wireframes to the finished product however they are still very similar to the expected outcome.
+
+![Home](/documentation/wireframes/Home-wireframe.png)
+
+![Dashboard](/documentation/wireframes/Dashboard-wireframe.png)
+
+
 
 
 ## Features
 
-My site is made up of the Home page, the Get Help page and the How To Cope page.
+My site is made up of the Home page, Sign in page, Sign up page, Sign out page, Dashboard, Bookings, Add Pet, Edit Pet and Delete Pet pages.
 
 ### General features on each page
 
-General features that reoccur on each page are the navbar, footer, favicon, 
+General features that reoccur on each page are the navbar, footer, favicon and background.
+Each page inlcudes the base.HTML which includes all these features.
 
-![General Features on each page]
+![Navbar](/documentation/testing/Navbar.png)
+
+![Footer](/documentation/testing/Footer.png)
 
 ### Future Implementations
 
+I have many future enhancements lined up. As my initial plan was to create the booking system that will be the next feature I will implement. Along with the hopes of implementing an automated reminder for customers with bookings too.
+
+After this feature I would love to add a reviews section in order to allow customers to give feedback to the business and to show new customers the feedback that has been left.
+
+I would be interested in implementing a social account login too.
 
 ### Accessibility
 
@@ -104,25 +128,21 @@ In my project I have added aria-labels and names to all my links and buttons to 
 
 ### Frameworks, Libraries & Programs Used
 
-Add any frameworks, libraries or programs used while creating your project.
+- Git
+- GitHub
+- GitPod
+- Bootstrap
+
 
 Make sure to include things like git, GitHub, the program used to make your wireframes, any programs used to compress your images, did you use a CSS framework like Bootstrap? If so add it here (add the version used).
 
 A great tip for this section is to include them as you use them, that way you won't forget what you ended up using when you get to the end of your project.
 
-## Deployment & Local Development
+## Deployment
 
 
 ### Deployment
 
-
-### Local Development
-
-
-#### How to Fork
-
-
-#### How to Clone
 
 
 ## Testing

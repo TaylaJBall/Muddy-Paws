@@ -37,11 +37,9 @@ I have had to follow a different approach for validating my HTML for this projec
 - Paste the copied code into the [validate by input](https://validator.w3.org/#validate_by_input) option.
 - Check for errors and warnings, fix any issues, revalidate by following the above steps and record the results.
 
-![html validation]()  
+![html validation](/Documentation/testing/HTML%20Validation.png)  
 
 All HTML pages were validated and received a 'No errors or warning to show' result as shown above.
-
-Initially my Profile and Article Page HTML were receiving [validator errors](documentation/testing/artview_p_error.png), [error code generated from Summernote code](documentation/testing/extra_p_tag.png) of having an extra p tag due to Summernotes rendering. I fixed this issue by replacing the p tags with divs, redeployed and checked for any styling issues. All clear on re-validation thankfully.
 
 
 | HTML Source Code/Page | Errors | Warnings |
@@ -49,92 +47,81 @@ Initially my Profile and Article Page HTML were receiving [validator errors](doc
 | Home | 0 | 0 |
 | Sign In | 0 | 0 |
 | Sign Up | 0 | 0 |
-| Profile | 0 | 0 |
-| Edit Profile Modal | 0 | 0 |
-| Articles | 0 | 0 |
-| Add Article | 0 | 0 |
-| View Article | 0 | 0 |
-| Edit Article | 0 | 0 |
-| Delete Article | 0 | 0 |
-| Delete Comment | 0 | 0 |
+| Dashboard | 0 | 0 |
+| Add Pet | 0 | 0 |
+| View Pet Details | 0 | 0 |
+| Edit Pet Details | 0 | 0 |
+| Delete Pet | 0 | 0 |
 | Booking | 0 | 0 |
-| Create Booking | 0 | 0 |
-| Edit Booking | 0 | 0 |
-| Delete Booking| 0 | 0 |
-| Gallery | 0 | 0 |
-| Add Photo | 0 | 0 |
-| Delete Photo Modal | 0 | 0 |
-| Visit Us | 0 | 0 |
 | Forgot Password | 0 | 0 |
-| Error 403 | 0 | 0 |
-| Error 404 | 0 | 0 |
-| Error 500 | 0  | 0 |
   
 <hr>  
 
 ### JavaScript Validation
 
-[JSHint](https://jshint.com/) was used to validate the small amount of JavaScript code added to the project. External JS, for Bootstrap purposes, obtained via [CDN](https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js) was not validated through JSHint
-
-| Page | Screenshot | Errors | Warnings |
-| ---- | ---------- | ------ | -------- |
-| base.html | ![js from base.html](documentation/testing/base_js.png) | none | none |
-| gallery.html | ![js from gallery.html](documentation/testing/gallery_js.png) | none | none |
-| profile.html | ![js from profile.html](documentation/testing/profile_js.png) | none | none |
+No JavaScript used in this project other than what is included in Bootstrap.
 
 <hr>
 
 ### Python Validation
 
-[CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by myself. No issues presented and line lengths were double checked. I have included some screenshots with the results below.
+[CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by myself. Only 1 issue was presented in the settings.py for line length, however, when investigating this further it seems I couldn't affectively change this. I have included some screenshots with the results below.
 
 | Feature | admin.py | forms.py | models.py | urls.py | views.py |
 |---------|----------|----------|-----------|---------|----------|
-| Articles | [no errors](documentation/testing/art_admin.png) | [no errors](documentation/testing/art_forms.png) | [no errors](documentation/testing/art_models.png) | [no errors](documentation/testing/art_urls.png) | [no errors](documentation/testing/art_views.png) |
-| Booking  | [no errors](documentation/testing/book_admion.png) | [no errors](documentation/testing/book_forms.png) | [no errors](documentation/testing/book_models.png) | [no errors](documentation/testing/book_urls.png) | [no errors](documentation/testing/book_views.png) |
-| FreeFido main app | na | na | na | [no errors](documentation/testing/freefido_urls.png) | na |
-| Gallery | [no errors](documentation/testing/gallery_admin.png) | [no errors](documentation/testing/gallery_form.png) | [no errors](documentation/testing/gallery_models.png) | [no errors](documentation/testing/gallery_urls.png) | [no errors](documentation/testing/gallery_views.png) |
-| Home | na | na | na | [no errors](documentation/testing/home_urls.png) | [no errors](documentation/testing/home_views.png) |
-| Profiles | [no errors](documentation/testing/profile_admin.png) | [no errors](documentation/testing/profile_forms.png) | [no errors](documentation/testing/profile_models.png) | [no errors](documentation/testing/profile_urls.png) | [no errors](documentation/testing/profile_views.png) |
-| Visit | na | na | na | [no errors](documentation/testing/visit_urls.png) | [no errors](documentation/testing/visit_views.png) |
+| Home | N/A | N/A | N/A | [no errors](documentation/testing/home%20urls.py.png) | [no errors](documentation/testing/home%20views.py.png) |
+| Dashboard  | [no errors](documentation/testing/dashboard%20admin.py.png) | [no errors](documentation/testing/dashboard%20forms.py.png) | [no errors](documentation/testing/dashboard%20models.py.png) | [no errors](documentation/testing/dashboard%20urls.py.png) | [no errors](documentation/testing/dashboard%20views.py.png) |
+| Muddy Paws main app | N/A | N/A | N/A | [no errors](documentation/testing/muddy-paws%20urls.py.png) | N/A |
 
 <hr>
 
 ### CSS Validation 
 
-[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS file. External CSS for Bootstrap, provided by [CDN](https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css) was not tested. Warnings were present, these were related to my use of variables for colors and fonts in my CSS file.
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS file. External CSS for Bootstrap, provided by [CDN](https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css) was not tested. No warnings were present.
 
-![css validation](documentation/testing/css_valid.png)
+![css validation](documentation/testing/CSS%20Val.png)
   
 <hr> 
    
 ### Lighthouse Scores
 
-Lighthouse testing was carried out in Incognito mode to acheive the best result. Performance was lower than preferred due to the site being image heavy. Images used in the sites design were saved in webp and png format, and compressed using [tinypng](https://tinypng.com/) and [Convertio](https://www.convertio.co) to offer the best chance for a decent performance score. The CDNs used for Bootstrap were also noted in the Lighthouse report as causing issue with performance. This report will be reviewed for future development of Freefido to raise this score.
+The performance was lower than preferred on mobile devices. Images used in the sites design were saved in webp and png format and were converted using [Convertio](https://www.convertio.co) to offer the best chance for a decent performance score. 
 
 **Desktop**  
 
-![Lighthouse scores desktop](documentation/testing/desktop_lh.png)  
+![Lighthouse scores desktop](documentation/testing/Homepage%20Web.png)  
 *Desktop Home Page*  
   
-![Lighthouse scores desktop](documentation/testing/dt_art_lh.png)  
-*Desktop Article Page*
+![Lighthouse scores desktop](documentation/testing/Dashboard%20web.png)  
+*Desktop Dashboard Page*
+
+![Lighthouse scores desktop](documentation/testing/Booking%20Web.png)  
+*Desktop Booking Page*
+
+![Lighthouse scores desktop](documentation/testing/PetDetails%20Web.png)  
+*Desktop Pet Details Page*
   
 **Mobile**  
 
-![Lighthouse scores mobile](documentation/testing/mobile_lh.png) 
+![Lighthouse scores mobile](documentation/testing/Homepage%20Mobile.png) 
 *Mobile Home Page*  
   
-![Lighthouse scores mobile](documentation/testing/mob_art_lh.png) 
-*Mobile Article Page*
+![Lighthouse scores mobile](documentation/testing/Dashboard%20Mobile.png) 
+*Mobile Dashboard Page*
+
+![Lighthouse scores mobile](documentation/testing/Booking%20Mobile.png) 
+*Mobile Booking Page*
+
+![Lighthouse scores mobile](documentation/testing/PetDetails%20Mobile.png) 
+*Mobile Pet Detail Page*
   
 <hr>  
 
 ### Wave Accessibility Evaluation
 
-![WAVE Web Accessibility Evaluation Tools](documentation/testing/wave_report.png)  
+![WAVE Web Accessibility Evaluation Tools](documentation/testing/WAVE.png)  
   
-Accessibility was included in every planning stage for FreeFido, through the use of the WAVE report tool I could ensure that any necessary changes were made to make the website as accessible as it could be. A minor contrast issue with a word rendered in orange for the feature theme and the absence of text in article image cards, due to their design, was noted in the report. These will be considered in the next version of FreeFido to better it's score.
+Accessibility was included in the planning stage for Muddy Paws, only 1 necessary change was made to make the website as accessible as it could be.
   
 <hr>  
 
@@ -146,35 +133,22 @@ Testing was carried out on desktop using a Chrome browser to ensure all forms ta
 
 | Feature                    | Tested?  | User Input Required | User Feedback Provided     | Pass/Fail | Fix |
 |----------------------------|----------|---------------------|----------------------------|-----------|-----|
-| Navbar Logo and Icons | Yes | Click | Logo takes user to 'Home', icons take user to intended location. Tooltips used in desktop/mobile view to provide accessibility and further information about the icons purpose and intention | Pass | - |
-| Home Page color text - 'visit', 'Join', 'articles' | Yes | Click | Users are informed of links purpose vis tooltip and link takes user to intended location | Pass | - |
-| Sign Up Page               | Yes      | Email/Username/Password | Empty fields deliver prompt to user, email field demands '@' symbols, [username/password](documentation/testing/signup_input.png) too similar, password too short | Pass | - |
+| Navbar Logo and Icons | Yes | Click | Logo takes user to 'Home', icons take user to intended location.  | Pass | - |
+| Sign Up Page               | Yes      | Email/Username/Password | Empty fields deliver prompt to user, email field demands '@' symbols, [username/password](documentation/testing/register-feedback.png) too common, password too short | Pass | - |
 | Sign In | Yes | Username/Email and Password | Username/Email/Password must be exactly as registered originally in either lowercase/uppercase or mixture | Pass | - |
-| Edit Profile (Registered User) | Yes | User may replace the placeholder image for Profile Image. All other fields are optional. | No feedback needed as placeholder profile picture is provided as default, user may change it they wish, other fields optional. | Pass | - |
-| Search Field | Yes | Any input accepted | User will be presented with the results of their search, if their search input matches an article then they will receive the applicable articles, otherwise 'No article found' will display | Pass | - |
-| Add Article (Registered User) | Yes | Mixture of required image/text fields | 'Please fill out this field' is displayed to user, article receives placeholder image if no image provided if RichTextField is left blank then user receives [this](documentation/testing/art_required.png) feedback | Pass | - |
-| Comment Box (Registered User) | Yes | Text input accepted | User is informed that their comment is awaiting approval | Pass | - |
-| Like/Unlike button (Registered User) | Yes | Click | Button changes from empty heart to full heart and number of likes changes | Pass | - |
-| Edit Article (Registered, Author) | Yes | Image/Text fields | Changes made to Article are saved and displayed | Pass | - |
-| Delete Article (Registered, Author) | Yes | Click button to choose 'Confirm' or 'Return to Articles' | Article is deleted or user returns to main article page | Pass | - |
-| Delete Comment (Registered, Author) | Yes | Click button to choose 'Delete' or 'Return to Articles' | Comment is deleted or user returns to main article page | Pass | - |
-| Create Booking (Registered User only) | Yes | Test input and selection from date/time widget/dropdown selection | User is prompted to 'Fill out this Field' for required fields, if date/time is unavailable they are informed by message to pick another date/time | Pass | - |
-| Edit Booking (Registered User)| Yes | Text fields | User may make changes to be saved, prompted to 'Fill out this field' is anything is left blank,  if date/time is unavailable they are informed by message to pick another date/time | Pass | - |
-| Delete Booking (Registered User) | Yes | Click button to choose 'Delete' or 'Return to Bookings' | Booking is deleted or user is returned to bookings page | Pass | - |
-| Upload Image (Registered User) | Yes | Image/Text fields | User is prompted to fill out the required fields, user may exit the page using icons if they change their mind | Pass | - |
-| Gallery Image | Yes | Hover/touch(on mobile) | User is presented with an overlay on the chosen image giving details on the image, photo uploader receives 'delete' icon when logged in | Pass | - |
-| Delete Photo (Registered, Uploader) | Yes | Click to 'Cancel' or 'Delete' | Cancel hides the modal, delete removes image and returns user to gallery | Pass | - |
-| Back to Top button - Gallery Page | Yes | Click | Button returns user to top when clicked | Pass | - |
-| Sign Out (Registered User) | Yes | Click to choose 'It's time to go' or 'Return home' | User is signed out and informed by message on screen, return home button brings user back to home page, still logged in | Pass | - |
-| Footer icons | Yes | Click | Icons take user to intended location via a new tab, tooltips provided inform user of icon purpose if they are not familiar with them | Pass | - |
+| Add Pet (Registered User) | Yes | Mixture of required image/text fields | 'Please fill out this field' is displayed to user, article receives placeholder image if no image provided. | Pass | - |
+| Edit Pet (Registered User) | Yes | Image/Text fields | Changes made to Pet are saved and displayed | Pass | - |
+| Delete Pet (Registered User) | Yes | Click button to choose 'Confirm' or press Home to cancel | Pet is deleted or user returns to homepage | Pass | - |
+| Sign Out (Registered User) | Yes | Click to choose 'Sign Out' or press Home to cancel | User is signed out and informed by message on screen, brings user back to home page | Pass | - |
+| Footer icons | Yes | Click | Icons take user to intended location via a new tab | Pass | - |
 
 ### Browser Compatibility
 
 Freefido was tested on the following browsers, new users were created, old users data edited and all features were tested:
 
-- Chrome v114.0.5735.199
-- Firefox v114.0.2
-- Edge v114.0.1823.79
+- Chrome v131
+- Firefox v133
+- Edge v131
 - Safari v16.5.1
 
 | Browser | Issue | Functionality |

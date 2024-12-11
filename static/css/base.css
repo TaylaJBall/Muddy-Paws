@@ -164,6 +164,14 @@ footer {
     width: 60px;
 }
 
+.sign-in-btn a {
+    color: var(--brown);
+}
+
+.sign-in-btn a:hover {
+    color: var(--yellow);
+}
+
 /* Form */
 
 .form {

@@ -1,8 +1,17 @@
 # MUDDY PAWS
 
-Muddy Paws is a small dog grooming business.
+**Project Overview**
 
-![amiresponsive]
+**Dog Grooming Business Management System**
+
+This project is a web application designed specifically for a small dog grooming business. The primary goal of this system is to streamline the management of customer and pet information, thereby enhancing the efficiency of the business's booking process.
+
+This web application serves as a vital tool for the dog grooming business owner, enabling her to slowly transition from paper-based bookings to a more organized digital system. By centralizing customer and pet information, the application not only saves time but also enhances customer service by allowing for more personalized interactions.
+
+I have many future features planned for this project which I will outline further into the Readme.
+
+
+![amiresponsive](/documentation/testing/AmIResponsive.png)
 
 ---
 
@@ -46,9 +55,7 @@ Muddy Paws is a small dog grooming business.
 
 ### User Stories
 
- #### Client Goals
-
- #### User Goals
+Shown below are my User Stories
 
 
 ## Design
@@ -120,14 +127,8 @@ A great tip for this section is to include them as you use them, that way you wo
 
 ## Testing
 
-### Lighthouse testing
+All testing is documented [Here](/TESTING.md)
 
-
-### Validators
-
-[CSS Validator](docs/css-validator.png)
-
-[HTML Validator](docs/html-validator.png)
 
 ## Credits
 

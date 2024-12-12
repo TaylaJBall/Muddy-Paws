@@ -42,8 +42,6 @@ I have many future features planned for this project which I will outline furthe
 
 * [Credits](#credits)
   * [Code Used](#code-used)
-  * [Content](#content)
-  * [Media](#media)
   * [Acknowledgments](#acknowledgments)
 
 ---
@@ -52,7 +50,7 @@ I have many future features planned for this project which I will outline furthe
 
 **ERD**
 
-I made my ERD with the midset of creating a booking system. While my initial goal was to create a full booking system, I pivoted to developing a customer management system for a dog grooming business. This experience taught me valuable lessons about adaptability, problem-solving, and time management. I gained hands-on experience with key concepts like user authentication, data handling, and UI/UX design.
+I made my ERD with the mindset of creating a booking system. While my initial goal was to create a full booking system, I pivoted to developing a customer management system for a dog grooming business. This experience taught me valuable lessons about adaptability, problem-solving, and time management. I gained hands-on experience with key concepts like user authentication, data handling, and UI/UX design.
 
 Although I didn't achieve my original objective, I successfully created a functional system that supports customer management, and I now have a much clearer understanding of how to approach more complex booking functionality in the future. This experience has strengthened my technical skills and my ability to navigate challenges with resilience and creativity.
 
@@ -121,7 +119,7 @@ I made my wireframes using Figma. As the scope of the project changed there are 
 
 ## Features
 
-My site is made up of the Home page, Sign in page, Sign up page, Sign out page, Dashboard, Bookings, Add Pet, Edit Pet and Delete Pet pages.
+My site is made up of the Home page, Sign in page, Sign up page, Sign out page, Dashboard, Bookings, Add Pet, View Pet, Edit Pet and Delete Pet pages.
 
 ### General features on each page
 
@@ -214,6 +212,6 @@ All testing is documented [Here](/TESTING.md)
 
 - I would also like to thak my coding coaches John Rearden and [Mark Briscoe](https://github.com/mbriscoe) for all their guidance when I was struggling with my booking system. They helped to guide me in the right direction.
 
-- I would like to thank my Cohort for always having each others backs and always lending a hand or an ear when needed. Especially to [Laura]() and [Martin] for their never ending support and willingness to all get each other to continue on the right path to the finish line.
+- I would like to thank my Cohort for always having each others backs and always lending a hand or an ear when needed. Especially to [Laura](https://github.com/laurachri-hall) and [Martin](https://github.com/MartinCowey) for their never ending support and willingness to all get each other to continue on the right path to the finish line.
 
 - Finally I would like to thank my family for helping emotionally during this project. I wouldn't be here at the end of this course if it wasn't for my amazingly supportive partner.

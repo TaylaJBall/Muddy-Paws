@@ -198,7 +198,7 @@ Responsiveness testing was carried out using Google Dev Tools on the devices det
 
 ## Bugs  
   
-As this was my first Django/Database project, most of the bugs that I encountered were learning and teething issues. I came across many bugs along the way, although I did have to change the scope of my project and when going back and starting again I had only some learning curves. The main issues i had were with the URL patterns, at the start of the project I had very little understanding of how Django works. Due to the countless URLissues I faced I am now fairly confident with this and how everything links together.
+As this was my first Django/Database project, most of the bugs that I encountered were learning and teething issues. I came across many little bugs along the way, although I did have to change the scope of my project and when going back and starting again I had only some learning curves. The main issues I had were with the URL patterns, at the start of the project I had very little understanding of how Django works. Due to the countless URLissues I faced I am now fairly confident with this and how everything links together.
 
 
 ### Known Bugs

@@ -37,7 +37,7 @@ I have had to follow a different approach for validating my HTML for this projec
 - Paste the copied code into the [validate by input](https://validator.w3.org/#validate_by_input) option.
 - Check for errors and warnings, fix any issues, revalidate by following the above steps and record the results.
 
-![html validation](/Documentation/testing/HTML%20Validation.png)  
+![html validation](/documentation/testing/HTML%20Validation.png)  
 
 All HTML pages were validated and received a 'No errors or warning to show' result as shown above.
 
@@ -65,7 +65,7 @@ No JavaScript used in this project other than what is included in Bootstrap.
 
 ### Python Validation
 
-[CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by myself. Only 1 issue was presented in the settings.py for line length, however, when investigating this further it seems I couldn't affectively change this. I have included some screenshots with the results below.
+[CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by myself. Only 1 issue was presented in the settings.py for line length, however, when investigating this further it seems I couldn't effectively change this. I have included some screenshots with the results below.
 
 | Feature | admin.py | forms.py | models.py | urls.py | views.py |
 |---------|----------|----------|-----------|---------|----------|
@@ -136,7 +136,7 @@ Testing was carried out on desktop using a Chrome browser to ensure all forms ta
 | Navbar Logo and Icons | Yes | Click | Logo takes user to 'Home', icons take user to intended location.  | Pass | - |
 | Sign Up Page               | Yes      | Email/Username/Password | Empty fields deliver prompt to user, email field demands '@' symbols, [username/password](documentation/testing/register-feedback.png) too common, password too short | Pass | - |
 | Sign In | Yes | Username/Email and Password | Username/Email/Password must be exactly as registered originally in either lowercase/uppercase or mixture | Pass | - |
-| Add Pet (Registered User) | Yes | Mixture of required image/text fields | 'Please fill out this field' is displayed to user, article receives placeholder image if no image provided. | Pass | - |
+| Add Pet (Registered User) | Yes | Mixture of required image/text fields | 'Please fill out this field' is displayed to user, Pet receives placeholder image if no image provided. | Pass | - |
 | Edit Pet (Registered User) | Yes | Image/Text fields | Changes made to Pet are saved and displayed | Pass | - |
 | Delete Pet (Registered User) | Yes | Click button to choose 'Confirm' or press Home to cancel | Pet is deleted or user returns to homepage | Pass | - |
 | Sign Out (Registered User) | Yes | Click to choose 'Sign Out' or press Home to cancel | User is signed out and informed by message on screen, brings user back to home page | Pass | - |
@@ -144,7 +144,7 @@ Testing was carried out on desktop using a Chrome browser to ensure all forms ta
 
 ### Browser Compatibility
 
-Freefido was tested on the following browsers, new users were created, old users data edited and all features were tested:
+Muddy Paws was tested on the following browsers, new users were created, old users data edited and all features were tested:
 
 - Chrome v131
 - Firefox v133
@@ -198,7 +198,7 @@ Responsiveness testing was carried out using Google Dev Tools on the devices det
 
 ## Bugs  
   
-As this was my first Django/Database project, most of the bugs that I encountered were learning and teething issues. I came across many little bugs along the way, although I did have to change the scope of my project and when going back and starting again I had only some learning curves. The main issues I had were with the URL patterns, at the start of the project I had very little understanding of how Django works. Due to the countless URLissues I faced I am now fairly confident with this and how everything links together.
+As this was my first Django/Database project, most of the bugs that I encountered were learning and teething issues. I came across many little bugs along the way, although I did have to change the scope of my project and when going back and starting again I only had some learning curves. The main issues I had were with the URL patterns, at the start of the project I had very little understanding of how Django works. Due to the countless URL issues I faced I am now fairly confident with this and how everything links together.
 
 
 ### Known Bugs
